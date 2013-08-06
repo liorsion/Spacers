@@ -93,8 +93,8 @@
 			<td><%= race_participation.runner.username %></td>
 			<td><%= race_participation.runner.home %></td>
 			<td><%= race_participation.runner.sex %></td>
-			<td><%= race_participation.speed %></td>
-			<td><%= race_participation.knowledge %></td>
+			<td><%= @race.speed_levels[race_participation.speed] %></td>
+			<td><%= @race.knowledge_levels[race_participation.knowledge] %></td>
 			<td>
 				<a data-toggle="modal" href="#myModal" class="open-SendMessage btn btn-primary btn-large" data-id="<%= race_participation.runner_id %>" data-runner=true>
 					Message
@@ -124,8 +124,8 @@
 			<td><%= pace_participations.runner.username %></td>
 			<td><%= pace_participations.runner.home %></td>
 			<td><%= pace_participations.runner.sex %></td>
-			<td><%= pace_participations.speed %></td>
-			<td><%= pace_participations.knowledge %></td>
+			<td><%= @race.speed_levels[pace_participations.speed] %></td>
+			<td><%= @race.knowledge_levels[pace_participations.knowledge] %></td>
 			<td>
 				<a data-toggle="modal" href="#myModal" class="open-SendMessage btn btn-primary btn-large" data-id="<%= pace_participations.runner_id %>" data-runner=false>
 					Message
