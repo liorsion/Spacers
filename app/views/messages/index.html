@@ -1,0 +1,54 @@
+<table class="runnerlist layout display responsive-table">
+	<thead>
+		<tr>
+			<th>From</th>
+			<th>Race</th>
+			<th>Message</th>
+		</tr>
+	</thead>
+	<tbody>
+	<% @messages.each do |message| %>
+		<tr>
+			<td><%= message.sender.username %></td>
+			<td><%= message.race.name %></td>
+			<td><a data-toggle="modal" href="#myModal" class="open-ReadMessage" data-name="<%= message.sender.username %>" data-speed="<%= message.speed %>" data-knowledge="<%= message.knowledge %>" data-race="<%= message.race_id %>" data-message-id="<%= message.id %>"><%= message.message %></a></td>
+		</tr>
+	<% end %>
+	</tbody>
+</table>
+
+<div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">Message</h4>
+          <h3>A suggestion to pace you!</h3>
+        </div>
+        <div class="modal-body">
+        	<p>
+        		<span class="text-primary">Runner Name:</span>
+        		<span class="text-info" id="sender_name"></span>
+        	</p>
+        	<p>
+        		<span class="text-primary">Message:</span>
+        		<span class="text-info" id="sender_message"></span>
+        	</p>
+        	<p>
+        		<span class="text-primary">Speed:</span>
+        		<span class="text-info" id="sender_speed"></span>
+        	</p>
+        	<p>
+        		<span class="text-primary">Knowledge:</span>
+        		<span class="text-info" id="sender_knowledge"></span>
+        	</p>
+        </div>
+        <div class="modal-footer">
+          <input type=hidden id="message_id" />
+          <a href="#" class="btn">Close</a>
+          <a href="#" class="btn btn-primary" id="approveMessage">Approve</a>
+          <a href="#" class="btn btn-primary" id="rejectMessage">Reject</a>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->

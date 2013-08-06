@@ -1,0 +1,189 @@
+<script>
+	var race_id = <%= @race.id %>;
+	function speedFromSpeedId(speed_id) {
+		switch (speed_id) {
+			<% @race.speed_levels.each_with_index do |speed_level, index| %>
+			case <%= index %>: return "<%= speed_level %>";
+			<% end %>
+		}
+	}
+
+	function knowledgeFromKnowledgeId(knowledge_id) {
+		switch (knowledge_id) {
+			<% @race.knowledge_levels.each_with_index do |knowledge_level, index| %>
+			case <%= index %>: return "<%= knowledge_level %>";
+			<% end %>
+		}
+	}
+</script>
+<h1><%= @race.name %></h1>
+<p class="lead">
+	This page is to help runners in the <%= @race.name %> connect with pacers who are wishing to pace and vice versa.
+	If you see someone you wish to pace or be paced by, click on the email button next to his/her name. This will generate a contact request form that you can send to the person. Your email address will be revealed so he/she may contact you.
+</p>
+
+<p>
+	Pacers need to be familiar with the
+	<a href="<%= @race.terms_url %>">Rules for Pacers</a>.
+</p>
+
+<div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">Send Message</h4>
+          <h3>As a <span id="pacer_or_runner"></span></h3>
+        </div>
+        <div class="modal-body">
+          <form>
+  					<fieldset>
+  						<input type=hidden id="runner_id" />
+					    <div class="form-group">
+					      <label for="message">Message</label>
+					      <textarea class="form-control" id="message" placeholder="Enter message" rows="3"></textarea>
+					    </div>
+					    <label for="speed">I normally run in the:</label>
+					    <div>
+					    	<select id='speed'>
+									<option value="">Choose one&hellip;</option>
+									<% @race.speed_levels.each_with_index do |speed_level, index| %>
+									case <%= index %>: return "<%= speed_level %>";
+									<option value="<%= index %>"><%= speed_level %></option>
+									<% end %>
+								</select>
+							</div>
+							<label for="knowledge">My knowledge of the <% @race.name %> course:</label>
+							<div>
+								<select id='knowledge'>
+									<option value="">Choose one&hellip;</option>
+										<% @race.knowledge_levels.each_with_index do |knowledge_level, index| %>
+										<option value="<%= index %>"><%= knowledge_level %></option>
+										<% end %>
+								</select>
+						</div>
+  					</fieldset>
+  				</form>
+        </div>
+        <div class="modal-footer">
+          <a href="#" class="btn">Close</a>
+          <a href="#" class="btn btn-primary" id="sendMessage">Send Message</a>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+
+<div>
+	<h2>Runners Table</h2>
+	<table class="runnerlist layout display responsive-table">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Home</th>
+				<th>Gender</th>
+				<th>Speed</th>
+				<th colspan="3">Experience</th>
+			</tr>
+		</thead>
+		<tbody>
+		<% @race.participations.racers.each do |race_participation| %>
+		<tr>
+			<td><%= race_participation.runner.username %></td>
+			<td><%= race_participation.runner.home %></td>
+			<td><%= race_participation.runner.sex %></td>
+			<td><%= race_participation.speed %></td>
+			<td><%= race_participation.knowledge %></td>
+			<td>
+				<a data-toggle="modal" href="#myModal" class="open-SendMessage btn btn-primary btn-large" data-id="<%= race_participation.runner_id %>" data-runner=true>
+					Message
+				</a>
+			</td>
+		</tr>
+		<% end %>
+		</tbody>
+	</table>
+</div>
+
+<div>
+	<h2>Pacers Table</h2>
+	<table class="runnerlist layout display responsive-table">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Home</th>
+				<th>Gender</th>
+				<th>Speed</th>
+				<th colspan="3">Experience</th>
+			</tr>
+		</thead>
+		<tbody>
+		<% @race.participations.pacers.each do |pace_participations| %>
+		<tr>
+			<td><%= pace_participations.runner.username %></td>
+			<td><%= pace_participations.runner.home %></td>
+			<td><%= pace_participations.runner.sex %></td>
+			<td><%= pace_participations.speed %></td>
+			<td><%= pace_participations.knowledge %></td>
+			<td>
+				<a data-toggle="modal" href="#myModal" class="open-SendMessage btn btn-primary btn-large" data-id="<%= pace_participations.runner_id %>" data-runner=false>
+					Message
+				</a>
+			</td>
+		</tr>
+		<% end %>
+		</tbody>
+	</table>
+</div>
+
+<div class="modal" id="joinRaceModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">Join Race as Pacer Or Runner</h4>
+          <h3>
+          	Join <%= @race.name %> As a 
+          	<select id="runner_type">
+          		<option value="racer">Racer</option>
+          		<option value="pacer">Pacer</option>
+          	</select>
+          </h3>
+        </div>
+        <div class="modal-body">
+          <form>
+  					<fieldset>
+					    <label for="speed">I normally run in the:</label>
+					    <div>
+					    	<select id='speed'>
+									<option value="">Choose one&hellip;</option>
+									<% @race.speed_levels.each_with_index do |speed_level, index| %>
+									case <%= index %>: return "<%= speed_level %>";
+									<option value="<%= index %>"><%= speed_level %></option>
+									<% end %>
+								</select>
+							</div>
+							<label for="knowledge">My knowledge of the <% @race.name %> course:</label>
+							<div>
+								<select id='knowledge'>
+									<option value="">Choose one&hellip;</option>
+										<% @race.knowledge_levels.each_with_index do |knowledge_level, index| %>
+										<option value="<%= index %>"><%= knowledge_level %></option>
+										<% end %>
+								</select>
+						</div>
+  					</fieldset>
+  				</form>
+        </div>
+        <div class="modal-footer">
+          <a href="#" class="btn">Close</a>
+          <a href="#" class="btn btn-primary" id="joinRace">Join</a>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+
+<a data-toggle="modal" href="#joinRaceModal" class="open-joinRace btn btn-primary btn-large">
+	Join Race
+</a>
+
+

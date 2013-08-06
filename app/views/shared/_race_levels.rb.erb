@@ -1,0 +1,17 @@
+<script>
+	function speedFromSpeedId(speed_id) {
+		switch (speed_id) {
+			<% @race.speed_levels.each_with_index do |speed_level, index| %>
+			case <%= index %>: return "<%= speed_level %>";
+			<% end %>
+		}
+	}
+
+	function knowledgeFromKnowledgeId(knowledge_id) {
+		switch (knowledge_id) {
+			<% @race.knowledge_levels.each_with_index do |knowledge_level, index| %>
+			case <%= index %>: return "<%= knowledge_level %>";
+			<% end %>
+		}
+	}
+</script>

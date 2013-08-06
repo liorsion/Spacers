@@ -1,0 +1,334 @@
+<style>
+.pacerpage{
+  max-width: 60em;
+  margin: 0 auto;
+}
+table th,
+table td{
+  text-align: left;
+}
+table.layout{
+  /* width: 99%; */
+  border-collapse: collapse;
+}
+table.display{
+  margin: 1em 0;
+}
+table.display th{
+  border: 1px solid #785B1B;
+  padding: .5em 1em;
+  color: #fff;
+}
+table.display td{
+  border: 1px solid #B3BFAA;
+  padding: .5em 1em;
+}
+table.display th{ background: #785B1B; }
+table.display td{ background: #fff; }
+
+table.responsive-table{
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.2);
+}
+#contactMessage h3 {
+	text-align: center;
+}
+@media (max-width: 30em){
+	table.responsive-table{
+	  box-shadow: none;  
+	}
+	table.responsive-table thead{
+	  display: none; 
+	}
+	table.display th,
+	table.display td{
+	padding: .5em;
+	}   
+	table.responsive-table td:nth-child(1):before{
+	content: 'Name:';
+	}
+	table.responsive-table td:nth-child(2):before{
+	content: 'Home:';
+	}
+	table.responsive-table td:nth-child(3):before{
+	content: 'Sex:';
+	}
+	table.responsive-table td:nth-child(4):before{
+	content: 'Speed:';
+	}
+	table.responsive-table td:nth-child(5):before{
+	content: 'Notes:';
+	}
+	table.responsive-table td:nth-child(6):before{
+	content: 'Know WSER:';
+	}
+	table.responsive-table td:nth-child(1),
+	table.responsive-table td:nth-child(2),
+	table.responsive-table td:nth-child(3),
+	table.responsive-table td:nth-child(4),
+	table.responsive-table td:nth-child(5),
+	table.responsive-table td:nth-child(6){
+	padding-left: 25%;
+	}
+	table.responsive-table td:nth-child(1):before,
+	table.responsive-table td:nth-child(2):before,
+	table.responsive-table td:nth-child(3):before,
+	table.responsive-table td:nth-child(4):before,
+	table.responsive-table td:nth-child(5):before,
+	table.responsive-table td:nth-child(6):before{
+	position: absolute;
+	left: .5em;
+	font-weight: bold;
+	} 
+	table.responsive-table tr,
+	table.responsive-table td{
+	    display: block;
+	}
+	table.responsive-table tr{
+	    position: relative;
+	    margin-bottom: 1em;
+	box-shadow: 0 1px 10px rgba(0, 0, 0, 0.2);
+	}
+	table.responsive-table td{
+	    border-top: none;
+	}
+	table.responsive-table td.name {
+	    background: #D5E0CC;
+	    border-top: 1px solid #B3BFAA;
+	}
+	table.responsive-table td.action{
+	    position: absolute;
+	    top: 0;
+	    right: 0;
+	    border: none;
+	    background: none;
+	}
+}
+
+form#request2ContactForm > div,
+form#registerForm > div {
+  clear: both;
+  overflow: hidden;
+  padding: 1px;
+  margin: 0 0 10px 0;
+}
+form#request2ContactForm > div > fieldset > div > div,
+form#registerForm > div > fieldset > div > div {
+  margin: 0 0 5px 0;
+}
+form#request2ContactForm > div > label,
+form#registerForm > div > label,
+legend {
+	width: 30%;
+  float: left;
+  padding-right: 10px;
+}
+form#request2ContactForm > div > div,
+form#request2ContactForm > div > fieldset > div,
+form#registerForm > div > div,
+form#registerForm > div > fieldset > div {
+  width: 67%;
+  float: right;
+}
+form#request2ContactForm > div > fieldset label,
+form#registerForm > div > fieldset label {
+	font-size: 90%;
+}
+fieldset {
+	border: 0;
+  padding: 0;
+}
+#request2ContactForm input[type=text],
+#request2ContactForm input[type=email],
+#request2ContactForm input[type=url],
+#request2ContactForm input[type=password],
+#request2ContactForm textarea,
+#registerForm input[type=text],
+#registerForm input[type=email],
+#registerForm input[type=url],
+#registerForm input[type=password],
+#registerForm textarea {
+	width: 50%;
+  border-top: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  float: left;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+#registerForm textarea {
+	padding: 5px;
+}
+#request2ContactForm input[type=text],
+#request2ContactForm input[type=select],
+#request2ContactForm input[type=email],
+#request2ContactForm input[type=url],
+#request2ContactForm input[type=password],
+#registerForm input[type=text],
+#registerForm input[type=select],
+#registerForm input[type=email],
+#registerForm input[type=url],
+#registerForm input[type=password] {
+  width: 50%;
+  height: 2.0em;
+  font-size : 12px;
+  float: left;
+}
+#request2ContactForm input[type=submit],
+#registerForm input[type=submit],
+input[type=reset] {
+	height: 2.0em;
+	font-size : 12px;
+	float: left;
+}
+#request2ContactForm select,
+#registerForm select {
+	float: left;
+}
+input[type=text]:focus,
+input[type=email]:focus,
+input[type=url]:focus,
+input[type=password]:focus,
+textarea:focus {
+  outline: 0;
+  border-color: #4697e4;
+}
+
+@media (max-width: 600px) {
+  form#request2ContactForm > div, form#registerForm > div {
+    margin: 0 0 15px 0; 
+  }
+  form#request2ContactForm > div > label,
+  form#registerForm > div > label,
+  legend {
+	  width: 100%;
+    float: none;
+    margin: 0 0 5px 0;
+  }
+  form#request2ContactForm > div > div,
+  form#request2ContactForm > div > fieldset > div,
+  form#registerForm > div > div,
+  form#registerForm > div > fieldset > div {
+    width: 100%;
+    float: none;
+  }
+  input[type=text],
+  input[type=email],
+  input[type=url],
+  input[type=password],
+  textarea,
+  select {
+    width: 50%; 
+  }
+}
+/* @media (min-width: 1200px) { */
+  form#request2ContactForm > div > label,
+  form#registerForm > div > label, legend {
+  	text-align: right;
+  }
+/* } */
+table.runnerlist, table.pacerlist {
+	width: 99%;
+	text-align: center;
+}
+
+table.runnerlist {
+	background-color: #ffff99;
+}
+
+table.pacerlist {
+	background-color: #99CCFF;
+}
+</style><body><a id="mailForm"></a><p style="margin-top: -45px;">This page is to help runners in the 2013 WSER connect with pacers who are wishing to pace and vice versa.</p>
+
+<p>If you see someone you wish to pace or be paced by, click on the email button next to his/her name. This will generate a contact request form that you can send to the person. Your email address will be revealed so he/she may contact you.</p>
+
+<p>Pacers need to be familiar with the <a href="http://www.wser.org/pacer-rules/">Rules for Pacers</a>.</p><form id='request2ContactForm' name='request2ContactForm' action='http://www.wser.org/request2Contact.php' method="post" style='display:none' >
+	<div><label for="contactMessage">Contact Request Form</label><div id='contactMessage0' style='text-align:left;'></div></div>
+        <div><label for="first">Your First Name</label><div><input type="text" onChange="fixCase(this.value,this)" name="first" id="first0"></div></div>	
+	<div><label for="last">Your Last Name</label><div><input type="text" name="last" id="last0" onChange="fixCase(this.value,this)"></div></div>
+	<div><label for="home">Home Town (City, State)</label><div><input type="text" name="home" onChange="fixCase(this.value,this)" id="home0"></div></div>
+	<div>
+		<label for="sex">Gender:</label><div><select name='sex'>
+			<option value="">Choose one&hellip;</option>
+			<option value="male">male</option>
+			<option value="female">female</option>
+		</select>
+		</div>
+</div>	
+	<div><label for="experience">Notes</label><div><textarea maxlength="100" name="experience" onChange="fixCase(this.value,this)" id="experience0"></textarea></div></div>
+	<div>
+		<label for="knowledge">My knowledge of the Western States 100 course:</label><div><select name='knowledge'>
+				<option value="">Choose one&hellip;</option>
+				<option value="Very well">I know the trail very well</option>
+				<option value="Been on it a few times">Been on trail a few times</option>
+				<option value="Never been on the trail">Never been on the trail</option>
+			</select>
+		</div>
+	</div>		
+	<div><label for="email">E-Mail Address: (Required)</label><div><input type="text" name="email" id="email0"></div></div><div><div><input type="submit" value="Request Contact" onClick="request2ContactHandler(); return false"><input type="reset" value="Clear Fields"><input type="reset" value="Cancel" onClick="document.getElementById('request2ContactForm').style.display='none'; return false"><input type='hidden' name='firstName' id='firstName2Contact' value=''><input type='hidden' name='lastName' id='lastName2Contact' value=''></div></div>	
+  	</form><!-- END OF E-MAIL CONTACT FORM -->
+  	
+<div><script type="text/javascript" src='http://www.wser.org/pacerFormv8f.php'></script></div>
+
+<h2 id="register">Pacer/Runner Registration</h2><p>If you would like to be listed on this page as either a runner looking for a pacer or a pacer looking for a runner, please fill out the form below. Once you have found a match, please remember to come back here and follow the directions below to remove your name from the list.</p><form id="registerForm" action='http://www.wser.org/pacerFormv8f.php' method="post" >
+<div>
+		<label for="status">I am looking for:</label><div><select name='status0'>
+			<option value="">Choose one&hellip;</option>
+			<option value="runner">a pacer</option>
+			<option value="pacer">a runner whom I can pace</option>
+		</select>
+		</div>
+	</div>
+	<div><label for="first">First Name</label><div><input type="text" onChange="fixCase(this.value,this)" name="first" id="first"></div></div>	
+	<div><label for="last">Last Name</label><div><input type="text" name="last" id="last" onChange="fixCase(this.value,this)"></div></div>	
+	<div><label for="home">Home Town (City, State)</label><div><input type="text" name="home" onChange="fixCase(this.value,this)" id="home"></div></div>	
+	<div><label for="experience">Notes</label><div><textarea maxlength="100" name="experience" onChange="fixCase(this.value,this)" id="experience"></textarea></div></div>
+	<div>
+		<label for="sex">Gender:</label><div><select name='sex'>
+			<option value="">Choose one&hellip;</option>
+			<option value="male">male</option>
+			<option value="female">female</option>
+		</select>
+		</div>
+	</div>
+	<div>
+		<label for="speed">I normally run in the:</label><div><select name='speed'>
+				<option value="">Choose one&hellip;</option>
+				<option value="top ten">top ten</option>
+				<option value="sub 20-hour">sub 20-hour</option>
+				<option value="sub 24-hour">sub 24-hour</option>
+				<option value="sub 30-hour">sub 30-hour</option>
+				<option value="no preference">no preference</option>
+		</select>
+		</div>
+	</div>
+	<div>
+		<label for="knowledge">My knowledge of the Western States 100 course:</label><div><select name='knowledge'>
+				<option value="">Choose one&hellip;</option>
+				<option value="Very well">I know the trail very well</option>
+				<option value="Been on it a few times">Been on trail a few times</option>
+				<option value="Never been on the trail">Never been on the trail</option>
+			</select>
+			</div>
+		</div>		
+<div><label for="answer">What is the distance of Western States Endurance Run? </label><div><input type="text" name="answer" onChange="fixCase(this.value,this)" id="answer"></div></div>
+	
+<p style="text-align:center;border-bottom: 2px solid #8E4A0C;"><strong>All Information to this point will display on this page.</strong></p>
+<p>Your e-mail address will not be displayed publicly but you must enter it to use this service. When someone wants to contact you, the server will forward his or her message to you by e-mail without disclosing your e-mail address to the sender.</p>
+	<div><label for="email">E-Mail Address: (Required)</label><div><input type="text" name="email" id="email"></div></div>
+<div>
+	<div>
+	<input type="submit" value="Register" onClick="formHandler(); return false"><input type="reset" value="Clear Fields">
+	</div>
+</div>
+<p>To delete your name from this page, enter your first and last name as it appears on the Runner/Pacer list and the e-mail address you registered with, <strong>check this box</strong> <input type="checkbox" name="deleteRecord" id="deleteRecord" value="1">, and click the Unregister button below.  Your record should be deleted. If it is not deleted, then it is probably because you must enter your name and e-mail address exactly how we have it listed, including capitalization.</p>
+<div>
+	<div>	
+	<input type="submit" value="Unregister" onClick="formHandler(); return false">
+	</div>
+</div>
+</form>

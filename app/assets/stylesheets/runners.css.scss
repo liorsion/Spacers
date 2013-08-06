@@ -1,0 +1,246 @@
+// Place all the styles related to the Runners controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.pacerpage{
+  max-width: 60em;
+  margin: 0 auto;
+}
+table th,
+table td{
+  text-align: left;
+}
+table.layout{
+  /* width: 99%; */
+  border-collapse: collapse;
+}
+table.display{
+  margin: 1em 0;
+}
+table.display th{
+  border: 1px solid #785B1B;
+  padding: .5em 1em;
+  color: #fff;
+}
+table.display td{
+  border: 1px solid #B3BFAA;
+  padding: .5em 1em;
+}
+table.display th{ background: #785B1B; }
+table.display td{ background: #fff; }
+
+table.responsive-table{
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.2);
+}
+#contactMessage h3 {
+	text-align: center;
+}
+@media (max-width: 30em){
+	table.responsive-table{
+	  box-shadow: none;  
+	}
+	table.responsive-table thead{
+	  display: none; 
+	}
+	table.display th,
+	table.display td{
+	padding: .5em;
+	}   
+	table.responsive-table td:nth-child(1):before{
+	content: 'Name:';
+	}
+	table.responsive-table td:nth-child(2):before{
+	content: 'Home:';
+	}
+	table.responsive-table td:nth-child(3):before{
+	content: 'Sex:';
+	}
+	table.responsive-table td:nth-child(4):before{
+	content: 'Speed:';
+	}
+	table.responsive-table td:nth-child(5):before{
+	content: 'Notes:';
+	}
+	table.responsive-table td:nth-child(6):before{
+	content: 'Know WSER:';
+	}
+	table.responsive-table td:nth-child(1),
+	table.responsive-table td:nth-child(2),
+	table.responsive-table td:nth-child(3),
+	table.responsive-table td:nth-child(4),
+	table.responsive-table td:nth-child(5),
+	table.responsive-table td:nth-child(6){
+	padding-left: 25%;
+	}
+	table.responsive-table td:nth-child(1):before,
+	table.responsive-table td:nth-child(2):before,
+	table.responsive-table td:nth-child(3):before,
+	table.responsive-table td:nth-child(4):before,
+	table.responsive-table td:nth-child(5):before,
+	table.responsive-table td:nth-child(6):before{
+	position: absolute;
+	left: .5em;
+	font-weight: bold;
+	} 
+	table.responsive-table tr,
+	table.responsive-table td{
+	    display: block;
+	}
+	table.responsive-table tr{
+	    position: relative;
+	    margin-bottom: 1em;
+	box-shadow: 0 1px 10px rgba(0, 0, 0, 0.2);
+	}
+	table.responsive-table td{
+	    border-top: none;
+	}
+	table.responsive-table td.name {
+	    background: #D5E0CC;
+	    border-top: 1px solid #B3BFAA;
+	}
+	table.responsive-table td.action{
+	    position: absolute;
+	    top: 0;
+	    right: 0;
+	    border: none;
+	    background: none;
+	}
+}
+
+form#request2ContactForm > div,
+form#registerForm > div {
+  clear: both;
+  overflow: hidden;
+  padding: 1px;
+  margin: 0 0 10px 0;
+}
+form#request2ContactForm > div > fieldset > div > div,
+form#registerForm > div > fieldset > div > div {
+  margin: 0 0 5px 0;
+}
+form#request2ContactForm > div > label,
+form#registerForm > div > label,
+legend {
+	width: 30%;
+  float: left;
+  padding-right: 10px;
+}
+form#request2ContactForm > div > div,
+form#request2ContactForm > div > fieldset > div,
+form#registerForm > div > div,
+form#registerForm > div > fieldset > div {
+  width: 67%;
+  float: right;
+}
+form#request2ContactForm > div > fieldset label,
+form#registerForm > div > fieldset label {
+	font-size: 90%;
+}
+fieldset {
+	border: 0;
+  padding: 0;
+}
+#request2ContactForm input[type=text],
+#request2ContactForm input[type=email],
+#request2ContactForm input[type=url],
+#request2ContactForm input[type=password],
+#request2ContactForm textarea,
+#registerForm input[type=text],
+#registerForm input[type=email],
+#registerForm input[type=url],
+#registerForm input[type=password],
+#registerForm textarea {
+	width: 50%;
+  border-top: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  float: left;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+#registerForm textarea {
+	padding: 5px;
+}
+#request2ContactForm input[type=text],
+#request2ContactForm input[type=select],
+#request2ContactForm input[type=email],
+#request2ContactForm input[type=url],
+#request2ContactForm input[type=password],
+#registerForm input[type=text],
+#registerForm input[type=select],
+#registerForm input[type=email],
+#registerForm input[type=url],
+#registerForm input[type=password] {
+  width: 50%;
+  height: 2.0em;
+  font-size : 12px;
+  float: left;
+}
+#request2ContactForm input[type=submit],
+#registerForm input[type=submit],
+input[type=reset] {
+	height: 2.0em;
+	font-size : 12px;
+	float: left;
+}
+#request2ContactForm select,
+#registerForm select {
+	float: left;
+}
+input[type=text]:focus,
+input[type=email]:focus,
+input[type=url]:focus,
+input[type=password]:focus,
+textarea:focus {
+  outline: 0;
+  border-color: #4697e4;
+}
+
+@media (max-width: 600px) {
+  form#request2ContactForm > div, form#registerForm > div {
+    margin: 0 0 15px 0; 
+  }
+  form#request2ContactForm > div > label,
+  form#registerForm > div > label,
+  legend {
+	  width: 100%;
+    float: none;
+    margin: 0 0 5px 0;
+  }
+  form#request2ContactForm > div > div,
+  form#request2ContactForm > div > fieldset > div,
+  form#registerForm > div > div,
+  form#registerForm > div > fieldset > div {
+    width: 100%;
+    float: none;
+  }
+  input[type=text],
+  input[type=email],
+  input[type=url],
+  input[type=password],
+  textarea,
+  select {
+    width: 50%; 
+  }
+}
+/* @media (min-width: 1200px) { */
+  form#request2ContactForm > div > label,
+  form#registerForm > div > label, legend {
+  	text-align: right;
+  }
+/* } */
+table.runnerlist, table.pacerlist {
+	width: 99%;
+	text-align: center;
+}
+
+table.runnerlist {
+	background-color: #ffff99;
+}
+
+table.pacerlist {
+	background-color: #99CCFF;
+}
