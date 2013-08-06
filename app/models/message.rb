@@ -6,5 +6,7 @@ class Message < ActiveRecord::Base
 	validates :receiver_id, :presence => {:message => 'Receiver cannot be blank, Message not saved'}
 	validates :message, :presence => {:message => 'Message cannot be blank, Message not saved'}
 
+	scope :unread, lambda { |user| where(receiver: user, status: Message::STATUS[:created]) }
+
 	STATUS = {:created => 0, :rejected => 1, :approved => 2}
 end

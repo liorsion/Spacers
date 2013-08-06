@@ -15,7 +15,6 @@ class Api::V1::MessagesController < Api::BaseController
 
 	def approve
 		@message = current_runner.messages.where(id: params[:message_id]).first
-		binding.pry
 		@message.update_attributes(status: Message::STATUS[:approved])
 		render json: {success: true}
 	end

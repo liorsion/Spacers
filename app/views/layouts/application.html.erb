@@ -20,20 +20,20 @@
         <a class="navbar-brand" href="#">Spacer</a>
         <div class="nav-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
+            <li class="active"><a href="/">Home</a></li>
           </ul>
           <div class="nav navbar-nav pull-right navbar-text">
           <% if runner_signed_in? %>
+            <a href="/messages" class="btn btn-danger btn-xs"><%= current_runner.messages.unread(current_runner).count %></a>
           	<span class="navbar-text" style="color: white"><%= current_runner.username %> </span>
           	<%= link_to('Logout', destroy_runner_session_path, :method => :delete) %>
          	<% else %>
-          	<%= form_for("runner", :url => runner_session_path, html: { class: "navbar-form form-inline pull-right" }) do |f| %>
+          	<%= form_for("runner", :url => runner_session_path, html: { class: "form-inline pull-left" }) do |f| %>
   						<%= f.text_field :email, placeholder: "email" %>
   						<%= f.password_field :password, placeholder: "passwoed" %>
-  						<%= f.submit 'Sign in' %>
-
+  						<%= f.submit 'Sign In' %>
 						<% end %>
-						
+              <%= link_to('Sign Up', new_runner_registration_path, {class: "pull-right", style: "margin-left: 10px"}) %>
           <% end %>
         	</div>
         </div><!--/.nav-collapse -->
