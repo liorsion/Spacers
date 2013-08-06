@@ -21,10 +21,15 @@ $(document).on("click", "#sendMessage", function() {
 						knowledge: $('#knowledge').val()
 					}, 
 					function(url, data, success) {
-						alert('success');
+						if (data["success"]) {
+							$('#myModal').modal('hide');
+						} else {
+							alert(data["message"]);
+						}
 					}
 					).fail(function(jqXHR, textStatus, errorThrown) {
 						display_network_error(jqXHR);
+						$('#myModal').modal('hide');
 					})
 
 });
@@ -33,17 +38,20 @@ $(document).on("click", "#joinRace", function() {
 	$.post('/api/races/' + race_id + '/participations', 
 		{
 			runner_type: $('#runner_type').val(),
-			knowledge: $('#knowledge').val(),
-			speed: $('#speed').val()
+			knowledge: $('#join_knowledge').val(),
+			speed: $('#join_speed').val()
 		}, 
 		function(data, url, success) {
 			if (data["success"]) {
+				$('#myModal').modal('hide');
 			} else {
 				alert(data["message"]);
 			}
 		}
 		).fail(function(jqXHR, textStatus, errorThrown) {
 			display_network_error(jqXHR);
+			$('#joinRaceModal').modal('hide');
+			
 		})
 
 })

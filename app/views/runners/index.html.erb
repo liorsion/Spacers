@@ -51,7 +51,6 @@
 					    	<select id='speed'>
 									<option value="">Choose one&hellip;</option>
 									<% @race.speed_levels.each_with_index do |speed_level, index| %>
-									case <%= index %>: return "<%= speed_level %>";
 									<option value="<%= index %>"><%= speed_level %></option>
 									<% end %>
 								</select>
@@ -59,7 +58,7 @@
 							<label for="knowledge">My knowledge of the <% @race.name %> course:</label>
 							<div>
 								<select id='knowledge'>
-									<option value="">Choose one&hellip;</option>
+									<option value="-1">Choose one&hellip;</option>
 										<% @race.knowledge_levels.each_with_index do |knowledge_level, index| %>
 										<option value="<%= index %>"><%= knowledge_level %></option>
 										<% end %>
@@ -143,11 +142,11 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4 class="modal-title">Join Race as Pacer Or Runner</h4>
-          <h3>
+          <h3 class="modal-title">Join Race as Pacer Or Runner</h4>
+          <h4>
           	Join <%= @race.name %> As a 
           	<select id="runner_type">
-          		<option value="racer">Racer</option>
+          		<option value="racer">Runner</option>
           		<option value="pacer">Pacer</option>
           	</select>
           </h3>
@@ -155,20 +154,19 @@
         <div class="modal-body">
           <form>
   					<fieldset>
-					    <label for="speed">I normally run in the:</label>
+					    <label for="join_speed">I normally run in the:</label>
 					    <div>
-					    	<select id='speed'>
-									<option value="">Choose one&hellip;</option>
+					    	<select id='join_speed'>
+									<option value="-1" selected="selected">Choose one&hellip;</option>
 									<% @race.speed_levels.each_with_index do |speed_level, index| %>
-									case <%= index %>: return "<%= speed_level %>";
 									<option value="<%= index %>"><%= speed_level %></option>
 									<% end %>
 								</select>
 							</div>
-							<label for="knowledge">My knowledge of the <% @race.name %> course:</label>
+							<label for="join_knowledge">My knowledge of the <% @race.name %> course:</label>
 							<div>
-								<select id='knowledge'>
-									<option value="">Choose one&hellip;</option>
+								<select id='join_knowledge'>
+									<option value="-1" selected="selected">Choose one&hellip;</option>
 										<% @race.knowledge_levels.each_with_index do |knowledge_level, index| %>
 										<option value="<%= index %>"><%= knowledge_level %></option>
 										<% end %>
