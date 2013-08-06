@@ -18,9 +18,10 @@ $(document).on("click", "#sendMessage", function() {
 						receiver_id: $('#runner_id').val(), 
 						message: $('#message').val(), 
 						speed: $('#speed').val(),
-						knowledge: $('#knowledge').val()
+						knowledge: $('#knowledge').val(),
+						race_id: race_id
 					}, 
-					function(url, data, success) {
+					function(data, message, success) {
 						if (data["success"]) {
 							$('#myModal').modal('hide');
 						} else {
@@ -41,7 +42,7 @@ $(document).on("click", "#joinRace", function() {
 			knowledge: $('#join_knowledge').val(),
 			speed: $('#join_speed').val()
 		}, 
-		function(data, url, success) {
+		function(data, message, success) {
 			if (data["success"]) {
 				$('#myModal').modal('hide');
 			} else {

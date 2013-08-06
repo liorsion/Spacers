@@ -7,7 +7,7 @@ class Api::V1::MessagesController < Api::BaseController
 		message = Message.new(create_message_parameters)
 
 		if message.save
-			render json: {success: true, company: message} and return
+			render json: {success: true, message: message} and return
     else
     	render json: {success: false, message: message.errors.messages} and return
     end
@@ -34,6 +34,7 @@ class Api::V1::MessagesController < Api::BaseController
 		params.require(:message)
 		params.require(:speed)
 		params.require(:knowledge)
-		params.permit(:sender_id, :receiver_id, :message, :speed, :knowledge)
+		params.require(:race_id)
+		params.permit(:sender_id, :receiver_id, :message, :speed, :knowledge, :race_id)
 	end
 end
