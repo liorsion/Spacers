@@ -34,3 +34,21 @@ $(document).on("click", "#approveMessage", function() {
 					})
 
 })
+
+$(document).on("click", "#rejectMessage", function() {
+	message_id = $("#message_id").val();
+	$.post('/api/messages/' + message_id + "/reject", 
+					{
+						
+					}, 
+					function(data, url, jqXHR) {
+						if (data["success"]) {
+						} else {
+							alert(data["message"]);
+						}
+					}
+					).fail(function(jqXHR, textStatus, errorThrown) {
+						display_network_error(jqXHR);
+					})
+
+})
