@@ -72,6 +72,7 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 
 group :production do
   gem 'thin'  
+  gem 'newrelic_rpm'
 end
 
 # Use unicorn as the app server
