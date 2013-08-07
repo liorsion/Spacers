@@ -29,7 +29,7 @@ $(document).on("click", "#sendMessage", function() {
 						}
 					}
 					).fail(function(jqXHR, textStatus, errorThrown) {
-						display_network_error(jqXHR);
+						display_network_error(jqXHR, textStatus, errorThrown);
 						$('#myModal').modal('hide');
 					})
 
@@ -50,7 +50,7 @@ $(document).on("click", "#joinRace", function() {
 			}
 		}
 		).fail(function(jqXHR, textStatus, errorThrown) {
-			display_network_error(jqXHR);
+			display_network_error(jqXHR, textStatus, errorThrown);
 			$('#joinRaceModal').modal('hide');
 			
 		})

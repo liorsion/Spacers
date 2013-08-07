@@ -30,7 +30,7 @@ $(document).on("click", "#approveMessage", function() {
 						}
 					}
 					).fail(function(jqXHR, textStatus, errorThrown) {
-						display_network_error(jqXHR);
+						display_network_error(jqXHR, textStatus, errorThrown);
 					})
 
 })
@@ -48,7 +48,7 @@ $(document).on("click", "#rejectMessage", function() {
 						}
 					}
 					).fail(function(jqXHR, textStatus, errorThrown) {
-						display_network_error(jqXHR);
+						display_network_error(jqXHR, textStatus, errorThrown);
 					})
 
 })

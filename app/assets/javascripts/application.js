@@ -17,7 +17,7 @@
 //= require_tree .
 
 
-function display_network_error(jqXHR) {
+function display_network_error(jqXHR, textStatus, errorThrown) {
 	if (jqXHR.status == 422) {
 		error_string = "";
 		for (errorIdx in jqXHR.responseJSON.errors) {
@@ -28,6 +28,12 @@ function display_network_error(jqXHR) {
 		}
 		alert(error_string);
 	} else {
-		alert(textStatus);
+		alert(textStatus + ": " + errorThrown);
 	}
 }
+
+$.ajaxSetup({
+  headers: {
+    'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+  }
+});

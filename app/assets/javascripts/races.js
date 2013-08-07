@@ -16,7 +16,7 @@ $(document).on("click", "#createRace", function () {
 						}
 					}
 				).fail(function(jqXHR, textStatus, errorThrown) {
-						display_network_error(jqXHR);
+						display_network_error(jqXHR, textStatus, errorThrown);
 					})
 
 })
