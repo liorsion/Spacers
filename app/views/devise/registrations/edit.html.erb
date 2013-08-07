@@ -19,6 +19,19 @@
   <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
   <%= f.password_field :current_password %></div>
 
+  <div><%= f.label :firstName %><br />
+  <%= f.text_field :firstName %></div>
+
+  <div><%= f.label :lastName %><br />
+  <%= f.text_field :lastName %></div>
+
+  <div><%= f.label :sex %><br />
+  <%= f.text_field :sex %></div>
+
+  <div><%= f.label :home %><br />
+  <%= f.text_field :home %></div>
+
+
   <div><%= f.submit "Update" %></div>
 <% end %>
 

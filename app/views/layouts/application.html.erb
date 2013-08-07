@@ -25,7 +25,7 @@
           <div class="nav navbar-nav pull-right navbar-text">
           <% if runner_signed_in? %>
             <a href="/messages" class="btn btn-danger btn-xs"><%= current_runner.messages.unread(current_runner).count %></a>
-          	<span class="navbar-text" style="color: white"><%= current_runner.username %> </span>
+          	<a href="<%= edit_runner_registration_path %>"><span class="navbar-text" style="color: white"><%= current_runner.username %> </span></a>
           	<%= link_to('Logout', destroy_runner_session_path, :method => :delete) %>
          	<% else %>
           	<%= form_for("runner", :url => runner_session_path, html: { class: "form-inline pull-left" }) do |f| %>
