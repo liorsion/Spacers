@@ -1,0 +1,8 @@
+Hello <%= @message.sender.username %>,
+
+Unfortunatly, your offer to pace <%= message.receiver.username %> for <%= @message.race.name %> was jsut rejected. This can happen when <%= message.receiver.username %> found other pacers or changed his mind about pacing, or because he was looking for someone with different experiene or speed from you.
+
+We still highly appreciate your effort and invite you to look for another racer <a href="<%= race_url(@message.race) %>">here</a>
+
+Regards,
+Spacers Team

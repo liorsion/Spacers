@@ -61,6 +61,7 @@ group :development, :test do
   gem 'pry-nav'
   gem 'pry-stack_explorer'
   gem "faker"
+  gem "letter_opener"
 end
 
 

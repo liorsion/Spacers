@@ -7,6 +7,7 @@ class Api::V1::MessagesController < Api::BaseController
 		message = Message.new(create_message_parameters)
 
 		if message.save
+			MessageMailer.message_received(message.receiver).deliver
 			render json: {success: true, message: message} and return
     else
     	render json: {success: false, message: message.errors.messages} and return
