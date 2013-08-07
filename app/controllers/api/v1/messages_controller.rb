@@ -16,6 +16,10 @@ class Api::V1::MessagesController < Api::BaseController
 	def approve
 		@message = current_runner.messages.where(id: params[:message_id]).first
 		@message.update_attributes(status: Message::STATUS[:approved])
+
+		@message.race.remove_pacer @message.sender
+		@message.race.remove_runner @message.receiver
+
 		render json: {success: true}
 	end
 

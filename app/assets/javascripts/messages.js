@@ -25,6 +25,8 @@ $(document).on("click", "#approveMessage", function() {
 					}, 
 					function(data, url, jqXHR) {
 						if (data["success"]) {
+							alert("Approved");
+							('#myModal').modal('hide');
 						} else {
 							alert(data["message"]);
 						}
@@ -43,6 +45,8 @@ $(document).on("click", "#rejectMessage", function() {
 					}, 
 					function(data, url, jqXHR) {
 						if (data["success"]) {
+							alert("Rejected");
+							('#myModal').modal('hide');
 						} else {
 							alert(data["message"]);
 						}

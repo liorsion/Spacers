@@ -23,6 +23,7 @@ $(document).on("click", "#sendMessage", function() {
 					}, 
 					function(data, message, success) {
 						if (data["success"]) {
+							alert("Message sent, thank you!");
 							$('#myModal').modal('hide');
 						} else {
 							alert(data["message"]);
@@ -44,6 +45,7 @@ $(document).on("click", "#joinRace", function() {
 		}, 
 		function(data, message, success) {
 			if (data["success"]) {
+				alert("Race joined, thank you!");
 				$('#myModal').modal('hide');
 			} else {
 				alert(data["message"]);

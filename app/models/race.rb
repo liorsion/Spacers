@@ -2,6 +2,20 @@ class Race < ActiveRecord::Base
 	has_many :runners, :through => :participations
 	has_many :participations
 
+	def remove_pacer(pacer)
+		logger.info("Removing pacer #{pacer.id} from race #{self.id}")
+
+		participation = self.participations.where("runner_id = %d" % [pacer.id]).first
+		participation.delete if participation
+	end
+
+	def remove_runner(runner)
+		logger.info("Removing runner #{runner.id} from race #{self.id}")
+
+		participation = self.participations.where("runner_id = %d" % [runner.id]).first
+		participation.delete if participation
+	end
+
 	def knowledge_levels
 		[
 			"I know the trail very well",

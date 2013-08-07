@@ -10,6 +10,7 @@ $(document).on("click", "#createRace", function () {
 					data,
 					function(data, url, jqXHR) {
 						if (data["success"]) {
+							alert("Race Created, thank you");
 							$('#myModal').modal('hide');
 						} else {
 							alert(data["message"]);

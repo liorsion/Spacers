@@ -10,7 +10,7 @@
 	<% @messages.each do |message| %>
 		<tr>
 			<td><%= message.sender.username %></td>
-			<td><%= message.race.name %></td>
+			<td><%= link_to message.race.name, [message.race, :runners] %></td>
 			<td><a data-toggle="modal" href="#myModal" class="open-ReadMessage" data-name="<%= message.sender.username %>" data-speed="<%= message.speed %>" data-knowledge="<%= message.knowledge %>" data-race="<%= message.race_id %>" data-message-id="<%= message.id %>"><%= message.message %></a></td>
 		</tr>
 	<% end %>
