@@ -1,4 +1,13 @@
-<div class="row" style="margin-top: 40px">
+<div class="row" style="margin-top: 60px">
+	<% if notice.is_a?(String) && !notice.empty? %>
 	<p class="notice"><%= notice %></p>
+	<% end %>
+	<% if alert.is_a?(String) && !alert.empty? %>
 	<p class="alert"><%= alert %></p>
+	<% end %>
 </div>
+<% flash.each do |name, msg| %>
+  <% if msg.is_a?(String) %>
+    <%= content_tag :div, msg, :id => "#{name}" %>
+  <% end %>
+<% end %>
