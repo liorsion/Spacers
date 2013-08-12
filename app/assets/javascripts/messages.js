@@ -16,6 +16,7 @@ $(document).on("click", ".open-ReadMessage", function () {
 		})
 });
 
+alert('fure');
 $(document).on("click", "#approveMessage", function() {
 	message_id = $("#message_id").val();
 	$.post('/api/messages/' + message_id + "/approve", 

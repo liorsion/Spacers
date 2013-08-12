@@ -11,11 +11,12 @@
 // about supported directives.
 //
 //= require jquery
+//= require turbolinks
+//= require jquery.turbolinks
 //= require jquery_ujs
 //= require bootstrap
-//= require jquery.turbolinks
-//= require turbolinks
 //= require_tree .
+
 
 
 function display_network_error(jqXHR, textStatus, errorThrown) {
@@ -38,3 +39,6 @@ $.ajaxSetup({
     'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
   }
 });
+
+$(document).on 'page:change', ->
+  _gauges.push(['track']);
